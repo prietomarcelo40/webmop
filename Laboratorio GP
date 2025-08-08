@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GP Laboratorio - Prótesis dentales personalizadas en Chajarí, Entre Ríos. Atención a odontólogos y clínicas." />
+  <meta name="keywords" content="prótesis dentales, laboratorio dental, Chajarí, odontología, implantes, prótesis fijas, reparaciones" />
+  <meta name="author" content="Carlos Gastón Prieto" />
+  <title>GP Laboratorio de Prótesis Dentales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #fefcea, #f1da36);
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #bfa046, #7f6a00);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff3c4;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      margin: 0.3rem 0.6rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: #7f6a00;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.3s, color 0.3s;
+    }
+
+    .tab:hover,
+    .tab.active {
+      border-bottom: 2px solid #bfa046;
+      color: #bfa046;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: #fffbe8;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 1.5rem;
+    }
+
+    .seccion {
+      display: none;
+    }
+
+    .seccion.activa {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 500px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #7f6a00;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      border: 1px solid #cbb870;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      background-color: #bfa046;
+      color: #fff;
+      border: none;
+      padding: 0.75rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #a88d3f;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fff3c4;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GP Laboratorio de Prótesis Dentales</h1>
+  </header>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <button class="tab active" onclick="mostrarSeccion(event, 'inicio')">Inicio</button>
+    <button class="tab" onclick="mostrarSeccion(event, 'servicios')">Servicios</button>
+    <button class="tab" onclick="mostrarSeccion(event, 'nosotros')">Nosotros</button>
+    <button class="tab" onclick="mostrarSeccion(event, 'contacto')">Contacto</button>
+  </nav>
+
+  <main>
+    <section id="inicio" class="seccion activa">
+      <h2>Bienvenido</h2>
+      <p>En <strong>GP Laboratorio</strong> ofrecemos excelencia en la creación de prótesis dentales personalizadas, con atención a cada detalle y tecnología de vanguardia.</p>
+    </section>
+
+    <section id="servicios" class="seccion">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Prótesis removibles y fijas</li>
+        <li>Implantes personalizados</li>
+        <li>Reparaciones express</li>
+        <li>Atención exclusiva a odontólogos y clínicas</li>
+      </ul>
+    </section>
+
+    <section id="nosotros" class="seccion">
+      <h2>Nosotros</h2>
+      <p><strong>Titular:</strong> Carlos Gastón Prieto</p>
+      <p><strong>Ubicación:</strong> Chajarí, Entre Ríos, Argentina</p>
+      <p>Más de 15 años de experiencia nos respaldan como referente en calidad y precisión dentro del rubro de la prótesis dental.</p>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Contacto</h2>
+      <p>📧 <strong>Email:</strong> <span id="mail"></span></p>
+      <p>📍 <strong>Dirección:</strong> Chajarí, Entre Ríos</p>
+      <p>🕘 <strong>Horario:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+      <p>📱 <strong>WhatsApp:</strong> Escribinos a través del botón flotante o dejá tu consulta:</p>
+
+      <form id="form-contacto" role="form" aria-label="Formulario de contacto">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <button type="submit">Enviar por WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/5493456478401" target="_blank" title="Escribinos por WhatsApp" aria-label="Escribinos por WhatsApp">💬</a>
+
+  <footer>
+    &copy; 2025 GP Laboratorio - Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function mostrarSeccion(e, id) {
+      document.querySelectorAll('.seccion').forEach(s => s.classList.remove('activa'));
+      document.querySelectorAll('nav .tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('activa');
+      e.target.classList.add('active');
+    }
+
+    const emailUser = "contacto";
+    const emailDomain = "gplaboratorio.com.ar";
+    document.getElementById("mail").textContent = `${emailUser}@${emailDomain}`;
+
+    const form = document.getElementById('form-contacto');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = form.nombre.value.trim();
+      const email = form.email.value.trim();
+      const mensaje = form.mensaje.value.trim();
+
+      if (!nombre || !email || !mensaje) {
+        alert("Por favor, completá todos los campos.");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (!emailRegex.test(email)) {
+        alert("Por favor, ingresá un email válido.");
+        return;
+      }
+
+      let texto = `Consulta desde página web:%0A`;
+      texto += `Nombre: ${encodeURIComponent(nombre)}%0A`;
+      texto += `Email: ${encodeURIComponent(email)}%0A`;
+      texto += `Mensaje: ${encodeURIComponent(mensaje)}`;
+
+      const numeroWsp = "5491133810134";
+      const url = `https://wa.me/${numeroWsp}?text=${texto}`;
+      window.open(url, '_blank');
+
+      alert("Redireccionando a WhatsApp...");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
