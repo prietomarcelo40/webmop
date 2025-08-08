@@ -1,0 +1,158 @@
+:root {
+  --azul-oscuro: #1E3A8A;
+  --azul-claro: #3B82F6;
+  --amarillo-oscuro: #D97706;
+  --amarillo-claro: #FBBF24;
+  --fondo: #F0F4F8;
+  --texto: #1E293B;
+  --texto-claro: #334155;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav.navbar {
+  background-color: var(--azul-oscuro) !important;
+}
+
+nav.navbar .navbar-brand,
+nav.navbar .nav-link {
+  color: white !important;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+nav.navbar .nav-link:hover,
+nav.navbar .navbar-brand:hover {
+  background-color: var(--amarillo-claro) !important;
+  color: var(--texto) !important;
+}
+
+/* Botones principales */
+.btn-primary {
+  background-color: var(--azul-oscuro);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--azul-claro);
+}
+
+/* Botones secundarios */
+.btn-secondary {
+  background-color: var(--amarillo-oscuro);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--amarillo-claro);
+  color: var(--texto-claro);
+}
+
+/* Formularios */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1.5px solid var(--azul-claro);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--texto);
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--amarillo-oscuro);
+  outline: none;
+  box-shadow: 0 0 5px var(--amarillo-claro);
+}
+
+/* Enlaces */
+a {
+  color: var(--azul-oscuro);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--amarillo-oscuro);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: var(--azul-oscuro);
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* WhatsApp button container */
+.whatsapp-contact {
+  margin-top: 2rem;
+}
+
+.whatsapp-contact a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--amarillo-oscuro);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.whatsapp-contact a:hover {
+  color: var(--amarillo-claro);
+}
+
+.whatsapp-contact img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+/* Scrollbar personalizado (WebKit) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--azul-oscuro);
+  border-radius: 6px;
+  border: 3px solid var(--fondo);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--azul-claro);
+}
