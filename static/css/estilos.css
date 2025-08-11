@@ -1,11 +1,11 @@
 :root {
-  --azul-oscuro: #1E3A8A;
-  --azul-claro: #3B82F6;
-  --amarillo-oscuro: #D97706;
-  --amarillo-claro: #FBBF24;
-  --fondo: #F0F4F8;
-  --texto: #1E293B;
-  --texto-claro: #334155;
+  --azul-oscuro: #1e40af;      /* Azul intenso */
+  --azul-claro: #3b82f6;       /* Azul brillante */
+  --amarillo-oscuro: #b45309;  /* Amarillo más fuerte, mostaza oscuro */
+  --amarillo-claro: #f59e0b;   /* Amarillo vibrante y claro */
+  --fondo: #d0ff00;            /* Amarillo pastel suave, fondo cálido */
+  --texto: #1e293b;            /* Texto oscuro */
+  --texto-claro: #334155;      /* Texto secundario */
 }
 
 body {
@@ -23,33 +23,35 @@ nav.navbar {
 
 nav.navbar .navbar-brand,
 nav.navbar .nav-link {
-  color: white !important;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(b3bb3fro) !important;  /* Amarillo vibrante para texto */
+  font-weight: 700;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  transition: color 0.3s ease;
 }
 
 nav.navbar .nav-link:hover,
 nav.navbar .navbar-brand:hover {
-  background-color: var(--amarillo-claro) !important;
-  color: var(--texto) !important;
+  color: white !important;  /* Blanco al pasar el mouse para contraste */
+  background-color: var(--amarillo-oscuro) !important; /* Fondo amarillo oscuro en hover */
 }
 
 /* Botones principales */
 .btn-primary {
   background-color: var(--azul-oscuro);
-  color: white;
-  border: none;
+  color: var(--amarillo-claro);
+  border: 2px solid var(--amarillo-claro);
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--azul-claro);
+  background-color: var(--amarillo-claro);
+  color: var(--azul-oscuro);
+  border-color: var(--azul-oscuro);
 }
 
 /* Botones secundarios */
@@ -59,15 +61,17 @@ nav.navbar .navbar-brand:hover {
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: 10px;
+  box-shadow: 0 0 8px var(--amarillo-claro);
 }
 
 .btn-secondary:hover {
   background-color: var(--amarillo-claro);
-  color: var(--texto-claro);
+  color: var(--azul-oscuro);
+  box-shadow: 0 0 12px var(--amarillo-oscuro);
 }
 
 /* Formularios */
@@ -76,41 +80,44 @@ input[type="email"],
 textarea {
   width: 100%;
   padding: 0.5rem;
-  border: 1.5px solid var(--azul-claro);
+  border: 2px solid var(--amarillo-claro);
   border-radius: 5px;
   font-size: 1rem;
   color: var(--texto);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 1rem;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-  border-color: var(--amarillo-oscuro);
+  border-color: var(--azul-oscuro);
   outline: none;
-  box-shadow: 0 0 5px var(--amarillo-claro);
+  box-shadow: 0 0 8px var(--azul-claro);
 }
 
 /* Enlaces */
 a {
-  color: var(--azul-oscuro);
+  color: var(--amarillo-oscuro);
   text-decoration: none;
+  font-weight: 700;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--amarillo-oscuro);
+  color: var(--azul-oscuro);
   text-decoration: underline;
 }
 
 /* Footer */
 footer {
   background-color: var(--azul-oscuro);
-  color: white;
+  color: var(--amarillo-claro);
   padding: 1rem 2rem;
   text-align: center;
   margin-top: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 /* WhatsApp button container */
@@ -123,19 +130,25 @@ footer {
   align-items: center;
   text-decoration: none;
   color: var(--amarillo-oscuro);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
+  border: 2px solid var(--amarillo-claro);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--amarillo-claro);
 }
 
 .whatsapp-contact a:hover {
-  color: var(--amarillo-claro);
+  color: var(--azul-oscuro);
+  background-color: var(--amarillo-claro);
+  box-shadow: 0 0 15px var(--amarillo-oscuro);
 }
 
 .whatsapp-contact img {
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
 }
 
 /* Scrollbar personalizado (WebKit) */
@@ -148,11 +161,11 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--azul-oscuro);
+  background-color: var(--amarillo-oscuro);
   border-radius: 6px;
   border: 3px solid var(--fondo);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--azul-claro);
+  background-color: var(--amarillo-claro);
 }
