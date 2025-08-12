@@ -230,7 +230,8 @@ nav a:hover {
 .reveal.fade-left.active { transform: translateX(0) scale(1); }
 
 .reveal.fade-right { transform: translateX(24px) scale(0.995); }
-.reveal.fade-right.active { transform: translateX(0) scale(1); }
+.reveal.fade-right.active { transform: translateX(0) scale(1);
+}
 
 /* Reducir animaciones para usuarios que lo pidan */
 @media (prefers-reduced-motion: reduce) {
@@ -239,5 +240,26 @@ nav a:hover {
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
+  }
+}
+
+/* ======== Estilos para sección Servicios ======== */
+.servicios-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.servicios-container > .col-md-4 {
+  flex: 1 1 300px;
+  max-width: 32%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .servicios-container > .col-md-4 {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 }
