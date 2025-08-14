@@ -10,34 +10,16 @@
 
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CYK8T07PZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-3CYK8T07PZ');
-</script>
-  </head>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // IntersectionObserver: eficiente y moderno
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        obs.unobserve(entry.target); // animar una sola vez; comentar si querés repetir
-      }
-    });
-  }, {
-    threshold: 0.12,       // cuánto del elemento debe verse para activar
-    rootMargin: '0px 0px -8% 0px'
-  });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CYK8T07PZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3CYK8T07PZ');
+    </script>
+</head>
 <body>
 
     <!-- Navbar -->
@@ -45,26 +27,30 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <a class="navbar-brand" href="/">Mi Web</a>
             <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#menu"
-              aria-controls="menu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="/">Inicio</a>
+                        <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/servicios">Servicios</a>
+                        <a class="nav-link" href="/servicios">Servicios</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/contacto">Contacto</a>
+                        <a class="nav-link" href="/trabajos">Trabajos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -83,6 +69,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Animación IntersectionObserver -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -8% 0px'
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>

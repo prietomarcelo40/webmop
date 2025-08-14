@@ -11,6 +11,10 @@ def inicio():
 def servicios():
     return render_template('servicios.html')  # Cambiamos a servicios.html
 
+@app.route('/trabajos')
+def trabajos():
+    return render_template('trabajos.html')
+
 @app.route('/contacto', methods=['GET', 'POST'])
 def contacto():
     if request.method == 'POST':

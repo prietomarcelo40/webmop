@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Trabajos - Mi Web{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Trabajos Realizados</h1>
+
+<div class="row">
+  <div class="col-md-4 reveal">
+    <div class="card mb-4">
+      <img src="{{ url_for('static', filename='img/transcriptor.png') }}" class="card-img-top" alt="Transcripción de audios">
+      <div class="card-body">
+        <h5 class="card-title">Programa de transcripción de audios automatizado</h5>
+        <p class="card-text">
+          Mi programa automatiza la transcripción de audios: convierte cualquier grabación en texto rápido y preciso, ahorrando tiempo y esfuerzo al instante.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Repetí col-md-4 para más trabajos -->
+</div>
+{% endblock %}
+
