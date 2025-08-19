@@ -3,14 +3,36 @@
 {% block title %}Contacto{% endblock %}
 
 {% block content %}
-<h2 class="mb-4">Contacto</h2>
-
-<div class="mt-4">
-  <a href="https://wa.me/5491133810134" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display: inline-flex; align-items: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:32px; height:32px;">
-    <span style="margin-left:8px; font-weight:bold; color:#25D366;">Contactame por WhatsApp</span>
-  </a>
-</div>
-
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/5491133810134" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40" height="40">
+    <span class="whatsapp-text" style="color:#25D366;">Contáctame por WhatsApp</span>
+</a>
 {% endblock %}
-    
+
+{% block extra_css %}
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp-text {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+</style>
+{% endblock %}
