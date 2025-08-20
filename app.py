@@ -18,17 +18,6 @@ def servicios():
 def trabajos():
     return render_template('trabajos.html')
 
-@app.route('/contacto', methods=['GET', 'POST'])
-def contacto():
-    if request.method == 'POST':
-        nombre = request.form['nombre']
-        email = request.form['email']
-        mensaje = request.form['mensaje']
-        print(f"Nuevo mensaje de {nombre} ({email}): {mensaje}")
-        return "¡Gracias por tu mensaje!"
-    return render_template('contacto.html')
-
-
 # -----------------------
 # Ejecutar la app
 # -----------------------

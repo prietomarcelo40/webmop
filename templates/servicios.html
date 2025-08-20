@@ -3,11 +3,83 @@
 {% block title %}Servicios{% endblock %}
 
 {% block content %}
+<style>
+/* Efecto hover para todas las cards */
+.card-hover {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Pseudo-elemento para la imagen de fondo */
+.card-hover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: inherit; /* toma la imagen del estilo inline */
+    transition: filter 0.5s ease;
+    z-index: 1;
+}
+
+.card-hover:hover::before {
+    filter: brightness(1.2) blur(2px); /* solo difumina la imagen */
+}
+
+/* Overlay semitransparente para texto */
+.card-body-overlay {
+    position: relative;
+    z-index: 2; /* encima de la pseudo-imagen */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.card-hover:hover .card-body-overlay {
+    background-color: rgba(0,0,0,0.6);
+    transform: translateY(-5px);
+}
+
+/* Animación de título y texto */
+.card-title {
+    transition: transform 0.5s ease, font-size 0.5s ease;
+    font-weight: bold; /* títulos en negrita */
+}
+
+.card-hover:hover .card-title {
+    transform: translateY(-5px);
+    font-size: 1.05em; /* aumento leve al hover */
+}
+
+.card-text {
+    transition: transform 0.5s ease, font-size 0.5s ease;
+    font-weight: bold; /* texto en negrita */
+}
+
+.card-hover:hover .card-text {
+    transform: translateY(-3px);
+    font-size: 1.05em; /* aumento leve al hover */
+}
+
+/* Colores de texto según fondo */
+#card1 .card-title, #card1 .card-text { color: white; }   /* fondo oscuro */
+#card2 .card-title, #card2 .card-text { color: white; }   /* fondo oscuro */
+#card3 .card-title, #card3 .card-text { color: white; }   /* fondo oscuro */
+</style>
+
 <h2 class="mb-4 text-center">Mis Servicios</h2>
 <div class="row servicios-container justify-content-center">
+    <!-- Servicio 1 -->
     <div class="col-md-4">
-        <div class="card shadow-sm mb-4">
-            <div class="card-body text-center">
+        <div id="card1" class="card shadow-sm mb-4 card-hover" style="background-image: url('static/img/websites.png');">
+            <div class="card-body text-center card-body-overlay">
                 <h5 class="card-title">Diseño de páginas Web a medida</h5>
                 <p class="card-text">
                     Tu sitio web a tu medida. Si quieres una presencia online que realmente te represente y genere resultados, hablemos. Juntos, haremos que tu visión se convierta en una realidad digital.
@@ -16,9 +88,10 @@
         </div>
     </div>
 
+    <!-- Servicio 2 -->
     <div class="col-md-4">
-        <div class="card shadow-sm mb-4">
-            <div class="card-body text-center">
+        <div id="card2" class="card shadow-sm mb-4 card-hover" style="background-image: url('static/img/automatizacion.png');">
+            <div class="card-body text-center card-body-overlay">
                 <h5 class="card-title">Automatización de procesos informáticos</h5>
                 <p class="card-text">
                     Automatiza y optimiza tu negocio. En lugar de realizar tareas repetitivas de forma manual, puedo diseñar un sistema que las haga por vos. Esto te permite enfocarte en lo que realmente importa.
@@ -27,9 +100,10 @@
         </div>
     </div>
 
+    <!-- Servicio 3 -->
     <div class="col-md-4">
-        <div class="card shadow-sm mb-4">
-            <div class="card-body text-center">
+        <div id="card3" class="card shadow-sm mb-4 card-hover" style="background-image: url('static/img/asesor.png');">
+            <div class="card-body text-center card-body-overlay">
                 <h5 class="card-title">Asesoramiento Virtual</h5>
                 <p class="card-text">
                     Escribime por WhatsApp y puedo resolver tus dudas, planificar proyectos o diseñar soluciones, todo esto personalizado.
