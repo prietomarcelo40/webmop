@@ -19,6 +19,34 @@
         gtag('js', new Date());
         gtag('config', 'G-3CYK8T07PZ');
     </script>
+
+    <style>
+        /* Botón flotante WhatsApp solo con logo, sin fondo */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-content:hover {
+            transform: scale(1.2); /* ligero efecto al pasar mouse */
+        }
+
+        .whatsapp-content img {
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -49,7 +77,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/trabajos">Trabajos</a>
                     </li>
-                    <!-- Contacto eliminado -->
                 </ul>
             </div>
         </div>
@@ -65,14 +92,13 @@
         <p style="color:white">© 2025 MOP - Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón flotante WhatsApp con frase animada -->
+    <!-- Botón flotante WhatsApp solo con logo -->
     <a class="whatsapp" 
        href="https://wa.me/5491133810134?text=Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información."
        target="_blank"
        title="Escribinos por WhatsApp">
        <div class="whatsapp-content">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:30px; height:30px;">
-           <span class="whatsapp-text">Escribime!</span>
+           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
        </div>
     </a>
 

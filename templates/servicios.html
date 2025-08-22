@@ -11,8 +11,9 @@
     transition: transform 0.5s ease;
 }
 
+/* Hover actualizado: sube la card y agrega sombra */
 .card-hover:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
@@ -49,23 +50,23 @@
 
 /* Animación de título y texto */
 .card-title {
-    transition: transform 0.5s ease, font-size 0.5s ease;
+    transition: transform 0.5s ease;
     font-weight: bold; /* títulos en negrita */
 }
 
 .card-hover:hover .card-title {
     transform: translateY(-5px);
-    font-size: 1.05em; /* aumento leve al hover */
+    /* font-size eliminado para evitar que mueva el footer */
 }
 
 .card-text {
-    transition: transform 0.5s ease, font-size 0.5s ease;
+    transition: transform 0.5s ease;
     font-weight: bold; /* texto en negrita */
 }
 
 .card-hover:hover .card-text {
     transform: translateY(-3px);
-    font-size: 1.05em; /* aumento leve al hover */
+    /* font-size eliminado para evitar que mueva el footer */
 }
 
 /* Colores de texto según fondo */

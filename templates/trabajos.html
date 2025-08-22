@@ -6,7 +6,7 @@
 <h1 class="mb-4 text-center">Trabajos Realizados</h1>
 
 <div class="row justify-content-center">
-  <div class="col-md-4 reveal">
+  <div class="col-md-4">
     <div class="card mb-4">
       <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios">
       <div class="card-body text-center">
@@ -19,5 +19,15 @@
   </div>
   <!-- Repetí col-md-4 para más trabajos -->
 </div>
-{% endblock %}
 
+<style>
+/* Desactivar animaciones de reveal en esta página */
+.reveal,
+.reveal.active {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+</style>
+
+{% endblock %}
