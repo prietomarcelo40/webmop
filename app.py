@@ -22,11 +22,11 @@ def trabajos():
 # Ejecutar la app
 # -----------------------
 if __name__ == '__main__':
-    # Puerto asignado por Render, por defecto 5000 para desarrollo local
+    # Fly.io asigna el puerto en la variable PORT
     port = int(os.environ.get("PORT", 5000))
 
     # Debug activo solo si la variable FLASK_DEBUG es "1" o no existe (local)
     debug_mode = os.environ.get("FLASK_DEBUG", "1") == "1"
 
-    # Host 0.0.0.0 para que Render pueda exponer la app
-    app.run(host="0.0.0.0", port=port, debug=debug_mode)
+    # Host 0.0.0.0 para exponer la app en contenedores (Fly.io)
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
