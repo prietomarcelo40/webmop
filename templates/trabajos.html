@@ -17,7 +17,24 @@
       </div>
     </div>
   </div>
-  <!-- Repetí col-md-4 para más trabajos -->
+
+  <!-- Tarjeta del video MP4 con tamaño responsivo -->
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <video controls class="card-video">
+        <source src="{{ url_for('static', filename='videos/cumple_ juli.mp4') }}" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div class="card-body text-center">
+        <h5 class="card-title">Invitación virtual al cumple de Juli</h5>
+        <p class="card-text">
+          Gracias a la familia de Juli por haber confiado en mí para la realización de la invitación virtual!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repetí col-md-4 para más trabajos si querés -->
 </div>
 
 <style>
@@ -27,6 +44,17 @@
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
+}
+
+/* Video responsivo dentro de la tarjeta */
+.card-video {
+    max-width: 250px;   /* ancho máximo del video */
+    width: 100%;        /* se adapta al contenedor si es más pequeño */
+    height: auto;       /* mantiene proporción */
+    border-radius: 8px; /* opcional, bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2); /* opcional, sombra */
+    display: block;     /* evita márgenes extra */
+    margin: 0 auto;     /* centra el video dentro de la tarjeta */
 }
 </style>
 
