@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Tu CSS personalizado -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CYK8T07PZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -19,63 +19,28 @@
         gtag('js', new Date());
         gtag('config', 'G-3CYK8T07PZ');
     </script>
-
-    <style>
-        /* Botón flotante WhatsApp solo con logo, sin fondo */
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        .whatsapp-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-content:hover {
-            transform: scale(1.2); /* ligero efecto al pasar mouse */
-        }
-
-        .whatsapp-content img {
-            width: 40px;
-            height: 40px;
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1e40af;">
         <div class="container">
             <a class="navbar-brand" href="/">Mi Web</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#menu"
-                aria-controls="menu"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Inicio</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/servicios">Servicios</a>
+                        <a class="nav-link {% if request.path == '/servicios' %}active{% endif %}" href="/servicios">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/trabajos">Trabajos</a>
+                        <a class="nav-link {% if request.path == '/trabajos' %}active{% endif %}" href="/trabajos">Trabajos</a>
                     </li>
                 </ul>
             </div>
@@ -88,24 +53,21 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-white text-center py-3">
-        <p style="color:white">© 2025 MOP - Todos los derechos reservados.</p>
+    <footer style="background-color:#1e40af; color:white; text-align:center; padding:1rem 2rem;">
+        <p>© 2025 MOP - Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón flotante WhatsApp solo con logo -->
-    <a class="whatsapp" 
-       href="https://wa.me/5491133810134?text=Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información."
-       target="_blank"
-       title="Escribinos por WhatsApp">
-       <div class="whatsapp-content">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-       </div>
+    <!-- Botón flotante WhatsApp -->
+    <a class="whatsapp" href="https://wa.me/5491133810134?text=Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información." target="_blank" title="Escribinos por WhatsApp">
+        <div class="whatsapp-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+        </div>
     </a>
 
-    <!-- Bootstrap JS Bundle -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Animación IntersectionObserver -->
+    <!-- IntersectionObserver Animaciones -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const observer = new IntersectionObserver((entries, obs) => {
@@ -115,11 +77,7 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.12,
-                rootMargin: '0px 0px -8% 0px'
-            });
-
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>

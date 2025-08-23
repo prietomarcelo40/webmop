@@ -25,19 +25,19 @@
     width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
-    background-image: inherit; /* toma la imagen del estilo inline */
+    background-image: inherit;
     transition: filter 0.5s ease;
     z-index: 1;
 }
 
 .card-hover:hover::before {
-    filter: brightness(1.2) blur(2px); /* solo difumina la imagen */
+    filter: brightness(1.2) blur(2px);
 }
 
 /* Overlay semitransparente para texto */
 .card-body-overlay {
     position: relative;
-    z-index: 2; /* encima de la pseudo-imagen */
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     transition: background-color 0.5s ease, transform 0.5s ease;
@@ -48,31 +48,30 @@
     transform: translateY(-5px);
 }
 
-/* Animación de título y texto */
+/* Animación de título y texto sin mover el footer */
 .card-title {
     transition: transform 0.5s ease;
-    font-weight: bold; /* títulos en negrita */
+    font-weight: bold;
 }
 
 .card-hover:hover .card-title {
     transform: translateY(-5px);
-    /* font-size eliminado para evitar que mueva el footer */
 }
 
 .card-text {
     transition: transform 0.5s ease;
-    font-weight: bold; /* texto en negrita */
+    font-weight: bold;
 }
 
 .card-hover:hover .card-text {
     transform: translateY(-3px);
-    /* font-size eliminado para evitar que mueva el footer */
 }
 
 /* Colores de texto según fondo */
-#card1 .card-title, #card1 .card-text { color: white; }   /* fondo oscuro */
-#card2 .card-title, #card2 .card-text { color: white; }   /* fondo oscuro */
-#card3 .card-title, #card3 .card-text { color: white; }   /* fondo oscuro */
+#card1 .card-title, #card1 .card-text { color: white; }
+#card2 .card-title, #card2 .card-text { color: white; }
+#card3 .card-title, #card3 .card-text { color: white; }
+#card4 .card-title, #card4 .card-text { color: white; }
 </style>
 
 <h2 class="mb-4 text-center">Mis Servicios</h2>
@@ -112,5 +111,18 @@
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Servicio 4 -->
+    <div class="col-md-4">
+        <div id="card4" class="card shadow-sm mb-4 card-hover" style="background-image: url('static/img/cars.png');">
+            <div class="card-body text-center card-body-overlay">
+                <h5 class="card-title">Invitaciones virtuales</h5>
+                <p class="card-text">
+                    Coloridas e interactivas con tus personajes favoritos. Tus invitados confirman asistencia con un clic y ven todos los detalles al instante. Olvídate del papel y sorprende desde el primer mensaje.
+                </p>
+            </div>
+        </div>
+    </div>
+</div> <!-- Cierra row servicios-container -->
+
 {% endblock %}

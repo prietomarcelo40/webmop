@@ -1,13 +1,13 @@
 :root {
-  --azul-oscuro: #1e40af;      
-  --azul-claro: #3b82f6;       
-  --amarillo-oscuro: #b45309;  
-  --amarillo-claro: #f59e0b;   
-  --fondo: #d0ff00;            
-  --texto: #1e293b;            
-  --texto-claro: #334155;      
+  --azul-oscuro: #1e40af;
+  --azul-claro: #3b82f6;
+  --amarillo-oscuro: #b45309;
+  --amarillo-claro: #f59e0b;
+  --fondo: #d0ff00;
+  --texto: #1e293b;
 }
 
+/* General */
 body {
   background-color: var(--fondo);
   color: var(--texto);
@@ -21,198 +21,25 @@ nav.navbar {
   background-color: var(--azul-oscuro) !important;
 }
 
-nav.navbar .navbar-brand,
-nav.navbar .nav-link {
-  color: white !important;  /* Letras blancas */
+nav.navbar .nav-link,
+nav.navbar .navbar-brand {
+  color: white !important;
   font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: color 0.3s ease;
 }
 
 nav.navbar .nav-link:hover,
 nav.navbar .navbar-brand:hover {
-  color: white !important;  
-  background-color: var(--amarillo-oscuro) !important; 
-}
-
-/* Botones principales */
-.btn-primary {
-  background-color: var(--azul-oscuro);
-  color: var(--amarillo-claro);
-  border: 2px solid var(--amarillo-claro);
-  padding: 0.6rem 1.5rem;
-  border-radius: 5px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: var(--amarillo-claro);
-  color: var(--azul-oscuro);
-  border-color: var(--azul-oscuro);
-}
-
-/* Botones secundarios */
-.btn-secondary {
-  background-color: var(--amarillo-oscuro);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 5px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-  box-shadow: 0 0 8px var(--amarillo-claro);
-}
-
-.btn-secondary:hover {
-  background-color: var(--amarillo-claro);
-  color: var(--azul-oscuro);
-  box-shadow: 0 0 12px var(--amarillo-oscuro);
-}
-
-/* Formularios */
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 2px solid var(--amarillo-claro);
-  border-radius: 5px;
-  font-size: 1rem;
-  color: var(--texto);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 1rem;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border-color: var(--azul-oscuro);
-  outline: none;
-  box-shadow: 0 0 8px var(--azul-claro);
-}
-
-/* Enlaces */
-a {
-  color: var(--amarillo-oscuro);
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--azul-oscuro);
-  text-decoration: underline;
+  background-color: var(--amarillo-oscuro) !important;
 }
 
 /* Footer */
 footer {
   background-color: var(--azul-oscuro);
-  color: var(--amarillo-claro);
-  padding: 1rem 2rem;
-  text-align: center;
-  margin-top: 3rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-/* Botón WhatsApp fijo sin movimiento al cambiar de pestaña */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  border-radius: 50px;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px rgba(0,255,100,0.6);
-  cursor: pointer;
-  text-decoration: none;
-  z-index: 9999;
-}
-
-.whatsapp:hover {
-  background-color: #1ebe5d;
-  box-shadow: 0 0 50px rgba(0,255,100,1);
-}
-
-.whatsapp-content {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.whatsapp-text {
   color: white;
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 700;
 }
 
-/* Scrollbar personalizado */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--fondo);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--amarillo-oscuro);
-  border-radius: 6px;
-  border: 3px solid var(--fondo);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--amarillo-claro);
-}
-
-/* ==== Animaciones generales desactivadas al cargar para que no afecte al botón ==== */
-
-/*body {
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-h1, h2, h3 {
-    animation: fadeUp 1.5s ease-in-out;
-}*/
-
-/* Mantener animaciones reveal al hacer scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px) scale(0.995);
-  transition: opacity 0.8s cubic-bezier(.2,.9,.2,1), transform 0.8s cubic-bezier(.2,.9,.2,1);
-  transition-delay: var(--delay, 0s);
-  will-change: transform, opacity;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.reveal.fade-left { transform: translateX(-24px) scale(0.995); }
-.reveal.fade-left.active { transform: translateX(0) scale(1); }
-
-.reveal.fade-right { transform: translateX(24px) scale(0.995); }
-.reveal.fade-right.active { transform: translateX(0) scale(1); }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.active {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-
-/* ======== Estilos para sección Servicios ======== */
+/* Servicios */
 .servicios-container {
   display: flex;
   flex-wrap: wrap;
@@ -231,4 +58,89 @@ h1, h2, h3 {
     max-width: 100%;
     flex: 1 1 100%;
   }
+}
+
+/* Cards hover */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-hover::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-size: cover;
+  background-position: center;
+  background-image: inherit;
+  transition: filter 0.5s ease;
+  z-index:1;
+}
+
+.card-hover:hover::before {
+  filter: brightness(1.2) blur(2px);
+}
+
+.card-body-overlay {
+  position: relative;
+  z-index:2;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.card-hover:hover .card-body-overlay {
+  transform: translateY(-5px);
+}
+
+/* Card titles and text */
+.card-title, .card-text {
+  font-weight: bold;
+  transition: transform 0.5s ease, font-size 0.5s ease;
+}
+
+.card-hover:hover .card-title { transform: translateY(-5px); font-size:1.05em; }
+.card-hover:hover .card-text { transform: translateY(-3px); font-size:1.05em; }
+
+/* Colores textos */
+#card1 .card-title, #card1 .card-text,
+#card2 .card-title, #card2 .card-text,
+#card3 .card-title, #card3 .card-text,
+#card4 .card-title, #card4 .card-text {
+  color: white;
+}
+
+/* WhatsApp flotante */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-content {
+  background-color: #25D366;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-content:hover { transform: scale(1.1); }
+
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
 }
