@@ -19,12 +19,17 @@ body {
 /* Navbar */
 nav.navbar {
   background-color: var(--azul-oscuro) !important;
+  /* Espaciado del navbar, ahora más proporcional */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 
 nav.navbar .nav-link,
 nav.navbar .navbar-brand {
   color: white !important;
   font-weight: 700;
+  /* Tamaño de fuente más pequeño para las pestañas */
+  font-size: 0.9rem;
 }
 
 nav.navbar .nav-link:hover,
@@ -37,6 +42,10 @@ footer {
   background-color: var(--azul-oscuro);
   color: white;
   font-weight: 700;
+  /* Tamaño de fuente del footer, ahora más proporcional */
+  font-size: 0.9rem;
+  /* Espaciado del footer */
+  padding: 1rem 2rem;
 }
 
 /* Servicios */
@@ -69,19 +78,21 @@ footer {
 
 .card-hover:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card-hover::before {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-image: inherit;
   transition: filter 0.5s ease;
-  z-index:1;
+  z-index: 1;
 }
 
 .card-hover:hover::before {
@@ -90,13 +101,14 @@ footer {
 
 .card-body-overlay {
   position: relative;
-  z-index:2;
-  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transition: background-color 0.5s ease, transform 0.5s ease;
 }
 
 .card-hover:hover .card-body-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
   transform: translateY(-5px);
 }
 
@@ -134,13 +146,34 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
 }
 
-.whatsapp-content:hover { transform: scale(1.1); }
+.whatsapp-content:hover {
+  transform: scale(1.1);
+}
 
 .whatsapp-icon {
   width: 50px;
   height: 50px;
+}
+
+/* Desactivar animaciones de reveal en esta página */
+.reveal,
+.reveal.active {
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Video responsivo dentro de la tarjeta */
+.card-video {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
 }

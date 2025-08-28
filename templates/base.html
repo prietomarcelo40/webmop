@@ -23,7 +23,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#1e40af;">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" style="background-color:#1e40af;">
         <div class="container">
             <a class="navbar-brand" href="/">Mi Web</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/trabajos' %}active{% endif %}" href="/trabajos">Trabajos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/contacto' %}active{% endif %}" href="/contacto">Contacto</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -53,12 +56,12 @@
     </div>
 
     <!-- Footer -->
-    <footer style="background-color:#1e40af; color:white; text-align:center; padding:1rem 2rem;">
+    <footer class="footer" style="text-align: center;">
         <p>© 2025 MOP - Todos los derechos reservados.</p>
     </footer>
 
     <!-- Botón flotante WhatsApp -->
-    <a class="whatsapp" href="https://wa.me/5491133810134?text=Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información." target="_blank" title="Escribinos por WhatsApp">
+    <a class="whatsapp" href="https://wa.me/5491133810134?text=Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información." target="_blank" rel="noopener noreferrer" title="Escribinos por WhatsApp">
         <div class="whatsapp-content">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
         </div>

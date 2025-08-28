@@ -3,20 +3,8 @@ import os
 
 app = Flask(__name__, static_folder='static')
 
-# -----------------------
-# Rutas de la web
-# -----------------------
-@app.route('/')
-def inicio():
-    return render_template('index.html')
-
-@app.route('/servicios')
-def servicios():
-    return render_template('servicios.html')
-
-@app.route('/trabajos')
-def trabajos():
-    return render_template('trabajos.html')
+from rutas.web import web
+app.register_blueprint(web)
 
 # -----------------------
 # Ejecutar la app
