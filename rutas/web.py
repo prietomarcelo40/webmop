@@ -35,8 +35,8 @@ def enviar_mensaje():
         # 2. Configurar los detalles del email
         # RECUERDA: Cambiar estos valores por tu correo y contraseña de aplicación
         # Para Gmail, necesitas generar una 'contraseña de aplicación' en la configuración de seguridad.
-        email_sender = 'tu-correo@gmail.com' 
-        email_password = 'tu-contraseña-de-app' 
+        email_sender = 'prietomarcelo40@gmail.com' 
+        email_password = 'lmhx artw sgpi ppmt' 
         email_receiver = 'prietomarcelo40@gmail.com' # Puedes poner un correo diferente si lo deseas
 
         subject = f'Nuevo mensaje de contacto de: {nombre}'
@@ -64,7 +64,7 @@ def enviar_mensaje():
                 smtp.login(email_sender, email_password)
                 smtp.sendmail(email_sender, email_receiver, em.as_string())
                 print("Correo enviado exitosamente.")
-                # Redirige al usuario a la página de contacto con un mensaje de éxito
+                # Redirige al  a la página de contacto con un mensaje de éxito
                 # (Necesitarías manejar este mensaje en tu HTML)
                 return redirect(url_for('web.show_page', page='contacto', enviado='success'))
         except Exception as e:
