@@ -1,67 +1,37 @@
 {% extends 'base.html' %}
 
-
-
 {% block title %}Contacto{% endblock %}
 
-
-
 {% block content %}
-
 <div class="container my-5">
-
-    <div class="row justify-content-center">
-
-        <div class="col-md-8">
-
-            <h1 class="text-center mb-4 text-dark">Contáctanos</h1>
-
-            <p class="text-center mb-5">
-
-                ¡Estamos listos! ¡Si tienes alguna pregunta sobre nuestros servicios, no dudes en escribirnos!
-
-            </p>
-
-
-
-            <form action="/enviar_mensaje" method="POST">
-
-                <div class="mb-3">
-
-                    <label for="nombre" class="form-label text-dark">Nombre completo</label>
-
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="email" class="form-label text-dark">Correo electrónico</label>
-
-                    <input type="email" class="form-control" id="email" name="email" required>
-
-                </div>
-
-                <div class="mb-3">
-
-                    <label for="mensaje" class="form-label text-dark">Mensaje</label>
-
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
-
-                </div>
-
-                <div class="d-grid gap-2">
-
-                    <button type="submit" class="btn btn-lg text-white" style="background-color: #1e40af;">Enviar mensaje</button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm"> <!-- Contenedor tipo "card" con padding y sombra -->
+                <div class="card-body">
+                    <h1 class="text-center mb-4 text-dark">Contáctanos</h1>
+                    <p class="text-center mb-5">
+                        ¡Estamos listos! ¡Si tienes alguna pregunta sobre nuestros servicios, no dudes en escribirnos!
+                    </p>
+                    <form action="{{ url_for('web.enviar_mensaje') }}" method="POST">
+                        <div class="mb-4"> <!-- Espaciado aumentado -->
+                            <label for="nombre" class="form-label text-dark">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-4"> <!-- Espaciado aumentado -->
+                            <label for="email" class="form-label text-dark">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-4"> <!-- Espaciado aumentado -->
+                            <label for="mensaje" class="form-label text-dark">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <div class="d-grid gap-2 mt-4"> <!-- Espaciado arriba del botón -->
+                            <button type="submit" class="btn btn-lg text-white" style="background-color: #1e40af;">Enviar mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}

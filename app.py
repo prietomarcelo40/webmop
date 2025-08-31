@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
 import os
 
+from rutas.web import web
+
+# Crea la instancia de la aplicación Flask
 app = Flask(__name__, static_folder='static')
 
-from rutas.web import web
+# Registra el Blueprint "web" en la aplicación principal
 app.register_blueprint(web)
 
 # -----------------------

@@ -1,7 +1,12 @@
-from flask import Blueprint, render_template, abort, request, redirect, url_for
+import os
 import smtplib
 import ssl
 from email.message import EmailMessage
+from dotenv import load_dotenv
+from flask import Blueprint, render_template, abort, request, redirect, url_for
+
+# Carga las variables del archivo .env al entorno
+load_dotenv()
 
 web = Blueprint('web', __name__, template_folder='templates', static_folder='static')
 
@@ -27,17 +32,14 @@ def show_page(page):
 @web.route('/enviar_mensaje', methods=['POST'])
 def enviar_mensaje():
     if request.method == 'POST':
-        # 1. Recoger los datos del formulario
         nombre = request.form.get('nombre')
         email_remitente = request.form.get('email')
         mensaje = request.form.get('mensaje')
-        
-        # 2. Configurar los detalles del email
-        # RECUERDA: Cambiar estos valores por tu correo y contraseña de aplicación
-        # Para Gmail, necesitas generar una 'contraseña de aplicación' en la configuración de seguridad.
-        email_sender = 'prietomarcelo40@gmail.com' 
-        email_password = 'lmhx artw sgpi ppmt' 
-        email_receiver = 'prietomarcelo40@gmail.com' # Puedes poner un correo diferente si lo deseas
+
+        # Configuración del email usando variables de entorno
+        email_sender = os.getenv('EMAIL_REMITENTE')
+        email_password = os.getenv('EMAIL_PASSWORD')
+        email_receiver = email_sender
 
         subject = f'Nuevo mensaje de contacto de: {nombre}'
         body = f"""
@@ -59,18 +61,13 @@ def enviar_mensaje():
         context = ssl.create_default_context()
 
         try:
-            # 3. Enviar el correo electrónico
             with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
                 smtp.login(email_sender, email_password)
                 smtp.sendmail(email_sender, email_receiver, em.as_string())
                 print("Correo enviado exitosamente.")
-                # Redirige al  a la página de contacto con un mensaje de éxito
-                # (Necesitarías manejar este mensaje en tu HTML)
                 return redirect(url_for('web.show_page', page='contacto', enviado='success'))
         except Exception as e:
             print(f"Error al enviar el correo: {e}")
-            # Redirige al usuario con un mensaje de error
             return redirect(url_for('web.show_page', page='contacto', enviado='error'))
 
-    # Si la solicitud no es POST, simplemente redirige a la página de contacto
     return redirect(url_for('web.show_page', page='contacto'))
