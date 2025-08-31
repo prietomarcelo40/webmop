@@ -177,3 +177,6 @@ footer {
   display: block;
   margin: 0 auto;
 }
+.form-control {
+    border-color: #1e40af; /* Color del borde igual al de navbar y footer */
+}
