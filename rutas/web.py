@@ -2,11 +2,7 @@ import os
 import smtplib
 import ssl
 from email.message import EmailMessage
-from dotenv import load_dotenv
 from flask import Blueprint, render_template, abort, request, redirect, url_for
-
-# Carga las variables del archivo .env al entorno
-load_dotenv()
 
 web = Blueprint('web', __name__, template_folder='templates', static_folder='static')
 
@@ -28,7 +24,6 @@ def show_page(page):
     else:
         abort(404)
 
-# Nueva ruta para procesar el formulario de contacto
 @web.route('/enviar_mensaje', methods=['POST'])
 def enviar_mensaje():
     if request.method == 'POST':
@@ -36,7 +31,7 @@ def enviar_mensaje():
         email_remitente = request.form.get('email')
         mensaje = request.form.get('mensaje')
 
-        # Configuración del email usando variables de entorno
+        # Configuración del email usando variables de entorno de Render
         email_sender = os.getenv('EMAIL_REMITENTE')
         email_password = os.getenv('EMAIL_PASSWORD')
         email_receiver = email_sender
