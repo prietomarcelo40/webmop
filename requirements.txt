@@ -1,7 +1,23 @@
+# Core de Flask
 Flask==2.3.3
+
+# Servidor WSGI para deploy
 gunicorn==23.0.0
+
+# Envío de emails
 Flask-Mail==0.9.1
+
+# Limitador de requests
 Flask-Limiter==3.12
+
+# Formularios y CSRF
 Flask-WTF==1.1.1
+
+# Sanitización de inputs
 bleach==6.1.0
+
+# Variables de entorno
 python-dotenv==1.0.0
+
+# Compatibilidad con Flask
+Werkzeug==2.2.3
