@@ -1,23 +1,68 @@
-from flask import Flask, render_template, request
 import os
+from flask import Flask
+from flask_mail import Mail
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_wtf import CSRFProtect
+from dotenv import load_dotenv
+import logging
 
-from rutas.web import web
+# ----------------------------
+# Cargar variables de entorno
+# ----------------------------
+load_dotenv()
 
-# Crea la instancia de la aplicación Flask
+# ----------------------------
+# Crear instancia de Flask
+# ----------------------------
 app = Flask(__name__, static_folder='static')
 
-# Registra el Blueprint "web" en la aplicación principal
+# ----------------------------
+# Configuración de la app
+# ----------------------------
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'cambiame_por_una_clave_segura')
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_REMITENTE')
+app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
+
+# ----------------------------
+# Inicializar extensiones
+# ----------------------------
+mail = Mail(app)
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
+csrf = CSRFProtect(app)
+
+# ----------------------------
+# Logging
+# ----------------------------
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+)
+
+# ----------------------------
+# Importar y registrar Blueprint
+# ----------------------------
+# IMPORTANTE: después de crear app y extensiones
+from rutas.web import web
 app.register_blueprint(web)
 
-# -----------------------
+# ----------------------------
 # Ejecutar la app
-# -----------------------
+# ----------------------------
 if __name__ == '__main__':
-    # Fly.io asigna el puerto en la variable PORT
     port = int(os.environ.get("PORT", 5000))
-
-    # Debug activo solo si la variable FLASK_DEBUG es "1" o no existe (local)
     debug_mode = os.environ.get("FLASK_DEBUG", "1") == "1"
+    
+    # HTTPS solo si estás en producción y tenés certificados
+    # from flask_sslify import SSLify
+    # sslify = SSLify(app)
 
-    # Host 0.0.0.0 para exponer la app en contenedores (Fly.io)
     app.run(host='0.0.0.0', port=port, debug=debug_mode)
