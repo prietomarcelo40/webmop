@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Trabajos - Mi Web{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center">Trabajos Realizados</h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios">
+      <div class="card-body text-center">
+        <h5 class="card-title">Software automatizado de transcripción de audios</h5>
+        <p class="card-text">
+          Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios para optimizar la transcripción de audios. Con mi software hoy cuentan con una herramienta rápida, precisa y segura que mejora su organización y eficiencia. Es un orgullo haberles brindado una solución que les simplifica la vida y los ayuda a enfocarse en lo más importante: la salud de las personas.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta del video MP4 con tamaño responsivo -->
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <video controls class="card-video">
+        <source src="{{ url_for('static', filename='videos/cumple_juli.mp4') }}" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div class="card-body text-center">
+        <h5 class="card-title">Invitación virtual al cumple de Juli</h5>
+        <p class="card-text">
+          Gracias a la familia de Juli por haber confiado en mí para la realización de la invitación virtual!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repetí col-md-4 para más trabajos si querés -->
+</div>
+
+{% endblock %}

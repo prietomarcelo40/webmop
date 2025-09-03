@@ -1,0 +1,14 @@
+CARACTERISTICAS.
+
+sin pestaña de contacto
+con boton flotante
+
+
+http://127.0.0.1:5000/
+
+deploy
+
+git add . && git commit -m "Actualizaciones" && git push
+
+
+para subir en fly.io
