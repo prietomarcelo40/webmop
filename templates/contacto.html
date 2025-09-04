@@ -4,62 +4,61 @@
 
 {% block content %}
 <style>
-    .card {
-        border: 2px solid #1e40af; /* Borde exterior azul */
-    }
-    .card-body {
-        background-color: #d0ff00; /* Fondo verde del body */
-        border: 2px solid #1e40af; /* Borde interior azul */
-    }
-    .form-control {
-        border-color: #1e40af; /* Borde de campos en azul */
-    }
+    .card {
+        border: 2px solid #1e40af; /* Borde exterior azul */
+    }
+    .card-body {
+        background-color: #d0ff00; /* Fondo verde del body */
+        border: 2px solid #1e40af; /* Borde interior azul */
+    }
+    .form-control {
+        border-color: #1e40af; /* Borde de campos en azul */
+    }
 </style>
 
 <div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card p-4 shadow-sm">
-                <div class="card-body">
-                    <h1 class="text-center mb-4 text-dark">Mi contacto</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm">
+                <div class="card-body">
+                    <h1 class="text-center mb-4 text-dark">Mi contacto</h1>
 
-                    <!-- Mensaje motivador comercial -->
-                    <p class="text-center mb-4 fw-bold" style="color:#1e40af; font-size:1.2rem;">
-                        Completá este formulario y te envío una propuesta personalizada en 24h!
-                    </p>
+                                        <p class="text-center mb-4 fw-bold" style="color:#1e40af; font-size:1.2rem;">
+                        Completá este formulario y te envío una propuesta personalizada en 24h!
+                    </p>
 
-                    <form action="{{ url_for('web.contacto') }}" method="POST">
-                        {{ form.hidden_tag() }}
-                        <div class="mb-4">
-                            <label for="nombre" class="form-label text-dark">Nombre completo</label>
-                            {{ form.nombre(class="form-control", id="nombre", placeholder="Tu nombre completo") }}
-                            {% for error in form.nombre.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="form-label text-dark">Correo electrónico</label>
-                            {{ form.email(class="form-control", id="email", placeholder="Tu correo para recibir propuesta") }}
-                            {% for error in form.email.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="mb-4">
-                            <label for="mensaje" class="form-label text-dark">Mensaje</label>
-                            {{ form.mensaje(class="form-control", id="mensaje", placeholder="Escribí tu consulta o proyecto") }}
-                            {% for error in form.mensaje.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="d-grid gap-2 mt-4">
-                            <button type="submit" class="btn btn-lg text-white" style="background-color: #25D366;">
-                                ¡Quiero mi propuesta!
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <form action="{{ url_for('web.contacto') }}" method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="mb-4">
+                            <label for="nombre" class="form-label text-dark">Nombre completo</label>
+                            {{ form.nombre(class="form-control", id="nombre", placeholder="Tu nombre completo") }}
+                            {% for error in form.nombre.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label text-dark">Correo electrónico</label>
+                            {{ form.email(class="form-control", id="email", placeholder="Tu correo para recibir propuesta") }}
+                            {% for error in form.email.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensaje" class="form-label text-dark">Mensaje</label>
+                            {{ form.mensaje(class="form-control", id="mensaje", placeholder="Escribí tu consulta o proyecto") }}
+                            {% for error in form.mensaje.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-lg text-white" style="background-color: #25D366;">
+                                ¡Quiero mi propuesta!
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
