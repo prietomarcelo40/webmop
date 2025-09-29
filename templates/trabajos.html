@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-{% extends "base.html" %} {% block title %}Trabajos - Mi Web{% endblock %} {% block content %} <h1 class="mb-4 text-center">Trabajos Realizados</h1> <div class="row justify-content-center">   <div class="col-md-4">     <div class="card mb-4">       <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios">       <div class="card-body text-center">         <h5 class="card-title">Software automatizado de transcripción de audios</h5>         <p class="card-text">           Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios para optimizar la transcripción de audios. Con mi software hoy cuentan con una herramienta rápida, precisa y segura que mejora su organización y eficiencia. Es un orgullo haberles brindado una solución que les simplifica la vida y los ayuda a enfocarse en lo más importante: la salud de las personas.         </p>       </div>     </div>   </div>     <div class="col-md-4">     <div class="card mb-4">       <video controls class="card-video">         <source src="{{ url_for('static', filename='videos/cumple_juli.mp4') }}" type="video/mp4">         Tu navegador no soporta el video.       </video>       <div class="card-body text-center">         <h5 class="card-title">Invitación virtual al cumple de Juli</h5>         <p class="card-text">           Gracias a la familia de Juli por haber confiado en mí para la realización de la invitación virtual!         </p>       </div>     </div>   </div>   </div> {% endblock %}
-=======
->>>>>>> 565295b (Guardo cambios antes de cambiar de rama)
 {% extends "base.html" %}
 
 {% block title %}
@@ -15,22 +9,20 @@ Trabajos - Mi Web
 
 <div class="row justify-content-center">
 
+  <!-- Card 1 -->
   <div class="col-md-4">
     <div class="card mb-4">
-      <img src="{{ url_for('static', filename='img/ossum.png') }}" 
-           class="card-img-top" 
-           alt="Software de transcripción de audios">
+      <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios">
       <div class="card-body text-center">
         <h5 class="card-title">Software automatizado de transcripción de audios</h5>
         <p class="card-text">
-          Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios para optimizar la transcripción de audios. 
-          Con mi software hoy cuentan con una herramienta rápida, precisa y segura que mejora su organización y eficiencia. 
-          Es un orgullo haberles brindado una solución que les simplifica la vida y los ayuda a enfocarse en lo más importante: la salud de las personas.
+          Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios...
         </p>
       </div>
     </div>
   </div>
 
+  <!-- Card 2 -->
   <div class="col-md-4">
     <div class="card mb-4">
       <video controls class="card-video">
@@ -39,20 +31,16 @@ Trabajos - Mi Web
       </video>
       <div class="card-body text-center">
         <h5 class="card-title">Invitación virtual al cumple de Juli</h5>
-        <p class="card-text">
-          Gracias a la familia de Juli por haber confiado en mí para la realización de la invitación virtual!
-        </p>
+        <p class="card-text">Gracias a la familia de Juli por confiar en mí...</p>
       </div>
     </div>
   </div>
 
-  <!-- Nueva card añadida con link y botón llamativo al final -->
+  <!-- Card 3 con link y botón -->
   <div class="col-md-4">
     <div class="card mb-4">
       <a href="https://trasladospersonalizados.onrender.com/" target="_blank">
-        <img src="{{ url_for('static', filename='img/web.traslados.jpg') }}" 
-             class="card-img-top" 
-             alt="Descripción del nuevo trabajo">
+        <img src="{{ url_for('static', filename='img/web.traslados.jpg') }}" class="card-img-top" alt="Descripción del nuevo trabajo">
       </a>
       <div class="card-body text-center">
         <h5 class="card-title">
@@ -61,19 +49,12 @@ Trabajos - Mi Web
           </a>
         </h5>
         <p class="card-text">
-          Gracias a nuestro cliente de Traslados Personalizados por confiar en nuestro trabajo para diseñar su pagina web
+          Gracias a nuestro cliente de Traslados Personalizados por confiar en nuestro trabajo...
         </p>
-        <!-- Botón llamativo al final -->
-        <a href="https://trasladospersonalizados.onrender.com/" class="btn btn-primary mt-2" target="_blank">
-          Visitar sitio
-        </a>
+        <a href="https://trasladospersonalizados.onrender.com/" class="btn btn-primary mt-2" target="_blank">Visitar sitio</a>
       </div>
     </div>
   </div>
 
 </div>
 {% endblock %}
-<<<<<<< HEAD
-=======
->>>>>>> c32974d (Agrego nueva card con botón llamativo al final)
->>>>>>> 565295b (Guardo cambios antes de cambiar de rama)
