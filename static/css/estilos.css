@@ -1,0 +1,182 @@
+:root {
+  --azul-oscuro: #1e40af;
+  --azul-claro: #3b82f6;
+  --amarillo-oscuro: #b45309;
+  --amarillo-claro: #f59e0b;
+  --fondo: #d0ff00;
+  --texto: #1e293b;
+}
+
+/* General */
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav.navbar {
+  background-color: var(--azul-oscuro) !important;
+  /* Espaciado del navbar, ahora más proporcional */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+nav.navbar .nav-link,
+nav.navbar .navbar-brand {
+  color: white !important;
+  font-weight: 700;
+  /* Tamaño de fuente más pequeño para las pestañas */
+  font-size: 0.9rem;
+}
+
+nav.navbar .nav-link:hover,
+nav.navbar .navbar-brand:hover {
+  background-color: var(--amarillo-oscuro) !important;
+}
+
+/* Footer */
+footer {
+  background-color: var(--azul-oscuro);
+  color: white;
+  font-weight: 700;
+  /* Tamaño de fuente del footer, ahora más proporcional */
+  font-size: 0.9rem;
+  /* Espaciado del footer */
+  padding: 1rem 2rem;
+}
+
+/* Servicios */
+.servicios-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.servicios-container > .col-md-4 {
+  flex: 1 1 300px;
+  max-width: 32%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .servicios-container > .col-md-4 {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
+/* Cards hover */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: inherit;
+  transition: filter 0.5s ease;
+  z-index: 1;
+}
+
+.card-hover:hover::before {
+  filter: brightness(1.2) blur(2px);
+}
+
+.card-body-overlay {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.card-hover:hover .card-body-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+}
+
+/* Card titles and text */
+.card-title, .card-text {
+  font-weight: bold;
+  transition: transform 0.5s ease, font-size 0.5s ease;
+}
+
+.card-hover:hover .card-title { transform: translateY(-5px); font-size:1.05em; }
+.card-hover:hover .card-text { transform: translateY(-3px); font-size:1.05em; }
+
+/* Colores textos */
+#card1 .card-title, #card1 .card-text,
+#card2 .card-title, #card2 .card-text,
+#card3 .card-title, #card3 .card-text,
+#card4 .card-title, #card4 .card-text {
+  color: white;
+}
+
+/* WhatsApp flotante */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-content {
+  background-color: #25D366;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-content:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Desactivar animaciones de reveal en esta página */
+.reveal,
+.reveal.active {
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Video responsivo dentro de la tarjeta */
+.card-video {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
+}
+.form-control {
+    border-color: #1e40af; /* Color del borde igual al de navbar y footer */
+}

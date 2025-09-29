@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <img src="{{ url_for('static', filename='img/marce.jpg') }}" 
+         class="rounded-circle shadow mb-4" 
+         alt="Foto de Marce" 
+         width="200" height="200">
+    <h1>Bienvenido a mi página. </h1>
+    <p class="lead">Esta es mi web dinámica. Hacé click en servicios y yo te lo resuelvo. Contactame!!</p>
+</div>
+{% endblock %}
