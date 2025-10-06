@@ -5,56 +5,81 @@ Trabajos - Mi Web
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-4 text-center">Trabajos Realizados</h1>
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h1 class="mb-3">Trabajos Realizados</h1>
+    <p class="lead">Algunos de los proyectos que he desarrollado recientemente.</p>
+  </div>
 
-<div class="row justify-content-center">
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card shadow-sm h-100 text-center">
+        <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios" style="max-height:150px; object-fit:cover;">
+        <div class="card-body">
+          <h5 class="card-title">Software automatizado de transcripción de audios</h5>
+          <p class="card-text">
+            Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios, incorporando el programa de transcripción de audios, el cual le facilitó y dio celeridad al trabajo de tipeo de informes médicos.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  <!-- Card 1 -->
-  <div class="col-md-4">
-    <div class="card mb-4">
-      <img src="{{ url_for('static', filename='img/ossum.png') }}" class="card-img-top" alt="Software de transcripción de audios">
-      <div class="card-body text-center">
-        <h5 class="card-title">Software automatizado de transcripción de audios</h5>
-        <p class="card-text">
-          Ossum, una de las empresas de salud más importantes de Berazategui, confió en mis servicios, incorprando el programa de transcripción de audios, el cual le facilitó y dio celeridad al trabajo de tipeo de informes médicos.</p>
-        </p>
+    <!-- Card 2 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card shadow-sm h-100 text-center">
+        <video controls class="card-video mb-3" style="max-height:150px; object-fit:cover; width:100%;">
+          <source src="{{ url_for('static', filename='videos/cumple_juli.mp4') }}" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">Invitación virtual al cumple de Juli</h5>
+          <p class="card-text">
+            Gracias a la familia de Juli por confiar en mí, para realizar la invitación del cumple.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card shadow-sm h-100 text-center">
+        <a href="https://trasladospersonalizados.onrender.com/" target="_blank">
+          <img src="{{ url_for('static', filename='img/web.traslados.jpg') }}" class="card-img-top" alt="Descripción del nuevo trabajo" style="max-height:150px; object-fit:cover;">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="https://trasladospersonalizados.onrender.com/" class="text-decoration-none text-dark" target="_blank">
+              Traslados Personalizados
+            </a>
+          </h5>
+          <p class="card-text">
+            Gracias a nuestro cliente de Traslados Personalizados por confiar en nuestro trabajo para publicitar su servicio exclusivo.
+          </p>
+          <a href="https://trasladospersonalizados.onrender.com/" class="btn btn-primary mt-2" target="_blank">Visitar sitio</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 (Clonada de la Card 3 con contenido de ejemplo) -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card shadow-sm h-100 text-center">
+        <a href="https://moptranscripciones.onrender.com//" target="_blank">
+          <img src="{{ url_for('static', filename='img/moptranscripciones.jpg') }}" class="card-img-top" alt="Sitio Web de Ejemplo" style="max-height:150px; object-fit:cover;">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="https://moptranscripciones.onrender.com//" class="text-decoration-none text-dark" target="_blank">
+              Mop Transcripciones
+            </a>
+          </h5>
+          <p class="card-text">
+            Este proyecto de ejemplo muestra cómo se puede replicar el formato y estilo de las cards anteriores para otro cliente o sitio web.
+          </p>
+          <a href="https://moptranscripciones.onrender.com//" class="btn btn-primary mt-2" target="_blank">Visitar sitio</a>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Card 2 -->
-  <div class="col-md-4">
-    <div class="card mb-4">
-      <video controls class="card-video">
-        <source src="{{ url_for('static', filename='videos/cumple_juli.mp4') }}" type="video/mp4">
-        Tu navegador no soporta el video.
-      </video>
-      <div class="card-body text-center">
-        <h5 class="card-title">Invitación virtual al cumple de Juli</h5>
-        <p class="card-text">Gracias a la familia de Juli por confiar en mí, para realizar la invitación del cumple.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 3 con link y botón -->
-  <div class="col-md-4">
-    <div class="card mb-4">
-      <a href="https://trasladospersonalizados.onrender.com/" target="_blank">
-        <img src="{{ url_for('static', filename='img/web.traslados.jpg') }}" class="card-img-top" alt="Descripción del nuevo trabajo">
-      </a>
-      <div class="card-body text-center">
-        <h5 class="card-title">
-          <a href="https://trasladospersonalizados.onrender.com/" class="text-decoration-none text-dark" target="_blank">
-            Traslados Personalizados
-          </a>
-        </h5>
-        <p class="card-text">
-          Gracias a nuestro cliente de Traslados Personalizados por confiar en nuestro trabajo para publicitar su servicio exclusivo.
-        </p>
-        <a href="https://trasladospersonalizados.onrender.com/" class="btn btn-primary mt-2" target="_blank">Visitar sitio</a>
-      </div>
-    </div>
-  </div>
-
 </div>
 {% endblock %}
