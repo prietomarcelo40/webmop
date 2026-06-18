@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- CSP implementada mediante meta tag (refuerzo de la cabecera HTTP) -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; font-src 'self' data:; connect-src 'self';" />
+    
     <title>{% block title %}Mi Web{% endblock %}</title>
 
     <!-- Bootstrap CSS -->
@@ -11,16 +16,16 @@
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
 
-    <!-- Google Analytics -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-896ZT2105L"></script>
+    <!-- Google Analytics (GA4) con ID desde variable de entorno -->
+    {% if config.GA_TRACKING_ID %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GA_TRACKING_ID }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', 'G-896ZT2105L');
+        gtag('config', '{{ config.GA_TRACKING_ID }}');
     </script>
+    {% endif %}
 </head>
 <body>
 
@@ -89,4 +94,3 @@
 
 </body>
 </html>
-
