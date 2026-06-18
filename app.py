@@ -23,13 +23,13 @@ app = Flask(__name__, static_folder='static')
 # ----------------------------
 # SECRET_KEY: OBLIGATORIA en producción. En desarrollo, usa un fallback seguro.
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key-cambiar-en-produccion')
-if app.config['SECRET_KEY'] == 'dev-key-cambiar-en-produccion' and os.environ.get('FLASK_ENV') == 'production':
+if app.config['SECRET_KEY'] == 'dev-key-cambiar-en-produccion' and os.environ.get('RENDER_EXTERNAL_URL'):
     raise ValueError("SECRET_KEY no definida en producción. La aplicación no puede arrancar.")
 
 # Configuración de sesiones seguras
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-app.config['SESSION_COOKIE_SECURE'] = os.environ.get('FLASK_ENV') == 'production'  # Solo HTTPS en producción
+app.config['SESSION_COOKIE_SECURE'] = bool(os.environ.get('RENDER_EXTERNAL_URL'))  # HTTPS en producción
 
 # Configuración de correo
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -40,10 +40,15 @@ app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
 
 # Configuración de seguridad adicional
 app.config['WTF_CSRF_ENABLED'] = True
-app.config['WTF_CSRF_SECRET_KEY'] = app.config['SECRET_KEY']  # Reutiliza la SECRET_KEY
+app.config['WTF_CSRF_SECRET_KEY'] = app.config['SECRET_KEY']
 
 # Configuración de caché para archivos estáticos (1 año)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
+
+# Variables para el botón de WhatsApp (desde variables de entorno)
+WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '5491133810134')
+WHATSAPP_MESSAGE = os.environ.get('WHATSAPP_MESSAGE', 'Hola!%20Vi%20tu%20página%20y%20quiero%20más%20información.')
+app.config['WHATSAPP_URL'] = f"https://wa.me/{WHATSAPP_NUMBER}?text={WHATSAPP_MESSAGE}"
 
 # ----------------------------
 # Inicializar extensiones
@@ -76,21 +81,20 @@ def security_headers(response):
     """
     Inyecta cabeceras de seguridad para prevenir ataques comunes.
     """
-    # Prevenir clickjacking
     response.headers['X-Frame-Options'] = 'DENY'
-    # Evitar MIME-sniffing
     response.headers['X-Content-Type-Options'] = 'nosniff'
-    # Control de referrer
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
-    # HSTS: forzar HTTPS (solo en producción)
-    if os.environ.get('FLASK_ENV') == 'production':
+    
+    # HSTS: forzar HTTPS solo en producción
+    if os.environ.get('RENDER_EXTERNAL_URL'):
         response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    
     # CSP: política de seguridad de contenido (se complementa con meta tag en base.html)
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
         "script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com; "
         "style-src 'self' https://cdn.jsdelivr.net; "
-        "img-src 'self' data:; "
+        "img-src 'self' data: https://upload.wikimedia.org; "
         "font-src 'self' data:; "
         "connect-src 'self';"
     )
@@ -101,20 +105,15 @@ def security_headers(response):
 # ----------------------------
 @app.errorhandler(404)
 def page_not_found(e):
-    """Página 404 genérica, sin revelar rutas internas."""
     return render_template('404.html'), 404
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    """Página 500 genérica, sin mostrar trazas de error."""
-    # Loggear el error en el servidor para depuración
     app.logger.error(f'Error 500: {e}')
     return render_template('500.html'), 500
 
-# Manejador genérico para otras excepciones HTTP
 @app.errorhandler(HTTPException)
 def handle_http_exception(e):
-    """Devuelve una respuesta JSON para errores HTTP (útil para APIs)."""
     return jsonify({
         'error': e.name,
         'message': e.description
@@ -123,7 +122,6 @@ def handle_http_exception(e):
 # ----------------------------
 # Importar y registrar Blueprint
 # ----------------------------
-# IMPORTANTE: Importamos después de crear app y extensiones para evitar circular imports
 from rutas.web import web
 app.register_blueprint(web)
 
@@ -132,10 +130,6 @@ app.register_blueprint(web)
 # ----------------------------
 if __name__ == '__main__':
     # Determinar si estamos en modo debug (NUNCA en producción)
-    # Por defecto: False (seguro). Se activa solo si FLASK_DEBUG=1 y FLASK_ENV=development
-    is_debug = os.environ.get('FLASK_DEBUG', '0') == '1' and os.environ.get('FLASK_ENV') != 'production'
-    
-    # Puerto para desarrollo local (Render asigna el puerto automáticamente)
+    is_debug = os.environ.get('FLASK_DEBUG', '0') == '1' and not os.environ.get('RENDER_EXTERNAL_URL')
     port = int(os.environ.get("PORT", 5000))
-    
     app.run(host='0.0.0.0', port=port, debug=is_debug)

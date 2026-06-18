@@ -19,7 +19,6 @@ body {
 /* Navbar */
 nav.navbar {
   background-color: var(--azul-oscuro) !important;
-  /* Espaciado del navbar, ahora más proporcional */
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
 }
@@ -28,7 +27,6 @@ nav.navbar .nav-link,
 nav.navbar .navbar-brand {
   color: white !important;
   font-weight: 700;
-  /* Tamaño de fuente más pequeño para las pestañas */
   font-size: 0.9rem;
 }
 
@@ -42,9 +40,7 @@ footer {
   background-color: var(--azul-oscuro);
   color: white;
   font-weight: 700;
-  /* Tamaño de fuente del footer, ahora más proporcional */
   font-size: 0.9rem;
-  /* Espaciado del footer */
   padding: 1rem 2rem;
 }
 
@@ -112,7 +108,6 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Card titles and text */
 .card-title, .card-text {
   font-weight: bold;
   transition: transform 0.5s ease, font-size 0.5s ease;
@@ -121,7 +116,6 @@ footer {
 .card-hover:hover .card-title { transform: translateY(-5px); font-size:1.05em; }
 .card-hover:hover .card-text { transform: translateY(-3px); font-size:1.05em; }
 
-/* Colores textos */
 #card1 .card-title, #card1 .card-text,
 #card2 .card-title, #card2 .card-text,
 #card3 .card-title, #card3 .card-text,
@@ -129,13 +123,15 @@ footer {
   color: white;
 }
 
-/* WhatsApp flotante */
+/* CORRECCIÓN WHATSAPP: Estilos mejorados para el botón flotante */
 .whatsapp {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 9999; /* Asegura que esté por encima de todo */
   text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .whatsapp-content {
@@ -146,17 +142,20 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-content:hover {
   transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-icon {
   width: 50px;
   height: 50px;
+  display: block;
+  fill: #FFFFFF; /* Para el SVG */
 }
 
 /* Desactivar animaciones de reveal en esta página */
@@ -177,6 +176,23 @@ footer {
   display: block;
   margin: 0 auto;
 }
+
 .form-control {
-    border-color: #1e40af; /* Color del borde igual al de navbar y footer */
+    border-color: #1e40af;
+}
+
+/* Responsive para el botón de WhatsApp en móviles */
+@media (max-width: 576px) {
+  .whatsapp {
+    bottom: 15px;
+    right: 15px;
+  }
+  .whatsapp-content {
+    width: 60px;
+    height: 60px;
+  }
+  .whatsapp-icon {
+    width: 40px;
+    height: 40px;
+  }
 }
